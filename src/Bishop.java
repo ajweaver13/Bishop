@@ -25,4 +25,54 @@ public class Bishop {
         this.end = end;
         this.moves = moves;
     }
+
+    public String getStart() {
+        return start;
+    }
+
+    public String getEnd() {
+        return end;
+    }
+
+    public int getMoves() {
+        return moves;
+    }
+
+    public Boolean solve() {
+        if (start.equals(end)) {
+            return true;
+        }
+        boolean result = false;
+        int x_current = start.toCharArray()[0];
+        int y_current = start.toCharArray()[1];
+        int x_end = end.toCharArray()[0];
+        int y_end = end.toCharArray()[1];
+        int current_moves = 0;
+
+        while (x_current != x_end || y_current != y_end) {
+            if (x_current < x_end) {
+                x_current++;
+                if (y_current < y_end) {
+                    y_current++;
+                } else{
+                    y_current--;
+                }
+            } else {
+                x_current--;
+                if (y_current < y_end) {
+                    y_current++;
+                } else{
+                    y_current--;
+                }
+            }
+            current_moves++;
+            if (current_moves > moves) {
+                break;
+            }
+        }
+        if (current_moves <= moves) {
+            result = true;
+        }
+        return result;
+    }
 }
