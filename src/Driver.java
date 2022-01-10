@@ -4,7 +4,7 @@ public class Driver {
     private static Scanner SCAN = new Scanner (System.in);
     public static void main(String[] args) {
         System.out.println("\n\t\tWelcome to today's class! \nToday we will be checking if a bishop can reach a " +
-                "certain \nspot on the board in the given amount of moves.\nKeep in mind the chessboard goes" +
+                "certain \nspot on the board in the given amount of moves.\nKeep in mind the chessboard goes " +
                 "from a1 to h8 (8x8).\n\n");
         String start = enterStart();
         String end = enterEnd();
