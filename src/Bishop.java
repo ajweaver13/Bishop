@@ -48,25 +48,34 @@ public class Bishop {
         int x_end = end.toCharArray()[0];
         int y_end = end.toCharArray()[1];
         int current_moves = 0;
+        int direction = 0;
 
         while (x_current != x_end || y_current != y_end) {
-            if (x_current < x_end) {
+            int temp_dir = 0;
+            if (x_current <= x_end) {
                 x_current++;
-                if (y_current < y_end) {
+                if (y_current <= y_end) {
                     y_current++;
+                    temp_dir = 1;
                 } else{
                     y_current--;
+                    temp_dir = 2;
                 }
             } else {
                 x_current--;
-                if (y_current < y_end) {
+                if (y_current <= y_end) {
                     y_current++;
+                    temp_dir = 3;
                 } else{
                     y_current--;
+                    temp_dir = 4;
                 }
             }
-            current_moves++;
-            if (current_moves > moves) {
+            if (temp_dir != direction) {
+                current_moves++;
+                direction = temp_dir;
+            }
+            if (current_moves > (moves + 1)) {
                 break;
             }
         }
